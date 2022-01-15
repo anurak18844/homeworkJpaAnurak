@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorator="layout/default_layout">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <script>
+    function handle(e){
+        if(e.key === "Enter"){
+            var varInput = document.getElementById("subj");
+            var url = "/employee/salary/" + varInput.value;
+            location.href = url;
+            alert(url);
+        }
+        return false;
+    }
+    </script>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="row mt-3">
+            <div class="col-md-12" style="text-align: right;">
+                <a href="/product/new" class="btn btn-success">Add new product</a>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="h1">All Employees</div>
+           <form action="" method="get">
+            <div class="mb-3">
+                <!-- <form id="theForm" name="theForm"> -->
+                    <!-- <input id='subj'/> -->
+                    <!-- <input type="text" class="form-control"  onkeypress='handle(event)' name="" id='subj' aria-describedby="helpId" placeholder="Search Salary"> -->
+                    <!-- <input type='submit'/> -->
+                <!-- </form> -->
+            </div>
+           </form>
+            <div class="col-md-12 mt-2">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th>Id Employee</th>
+                            <th>Name</th>
+                            <th>Salary (Baht/Month)</th>
+                            <th>Department</th>
+                            <th>Project</th>
+                            <th>Manage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="e: ${employees}">
+                            <td th:text="${e.id}"></td>
+                            <td th:text="${e.name}"></td>
+                            <td th:text="${e.salary}"></td>
+                            <td th:text="${e.department.name}"></td>
+                            <td th:text="${e.project.name}"></td>
+                            <td>
+                                <a class="btn btn-info btn-sm">
+                                    Edit
+                                </a>
+                                <a class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to delete this product?')">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
