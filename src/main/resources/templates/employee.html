@@ -12,9 +12,9 @@
             var varInput = document.getElementById("subj");
             var url = "/employee/salary/" + varInput.value;
             location.href = url;
-            alert(url);
+            // alert(url);
         }
-        return false;
+        return true;
     }
     </script>
 </head>
@@ -27,15 +27,11 @@
         </div>
         <div class="row mt-3">
             <div class="h1">All Employees</div>
-           <form action="" method="get">
-            <div class="mb-3">
                 <!-- <form id="theForm" name="theForm"> -->
                     <!-- <input id='subj'/> -->
-                    <!-- <input type="text" class="form-control"  onkeypress='handle(event)' name="" id='subj' aria-describedby="helpId" placeholder="Search Salary"> -->
+                    <input type="text" class="form-control"  onkeypress='handle(event)' name="" id='subj' aria-describedby="helpId" placeholder="Search Salary">
                     <!-- <input type='submit'/> -->
                 <!-- </form> -->
-            </div>
-           </form>
             <div class="col-md-12 mt-2">
                 <table class="table text-center">
                     <thead>
